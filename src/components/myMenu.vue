@@ -33,6 +33,10 @@
             href: '/home/membermanager'
           },
           {
+            title: '成绩统计',
+            href: '/home/scorecount'
+          },
+          {
             title: '修改密码',
             href: '/home/changepwd'
           }
