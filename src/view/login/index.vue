@@ -23,7 +23,7 @@
       this.$api.get('/account/isweblogin', null,
         resj => {
           if (resj.message === '已登录') {
-            this.$router.replace('/home/membercenter')
+            this.$router.replace('/home/membermanager')
           } else {
             this.loaded = true
           }

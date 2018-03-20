@@ -61,7 +61,7 @@
           if (valid) {
             this.$api.post('/account/loginManager', this.form,
               resj => {
-                this.$router.replace('/home/')
+                this.$router.replace('/home/membermanager')
               },
               err => {
                 this.message = err.message

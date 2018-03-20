@@ -6,6 +6,7 @@ const Login = () => import('@/view/login')
 const ForgetPsw = () => import('@/view/forgetpsw')
 const ChangePwd = () => import('@/view/changepassword')
 const Register = () => import('@/view/register')
+const MemberManager = () => import('@/view/membermanager')
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -22,6 +23,11 @@ export default new Router({
         {
           path: 'changepwd',
           component: ChangePwd,
+          meta: { userState: 1 }
+        },
+        {
+          path: 'membermanager',
+          component: MemberManager,
           meta: { userState: 1 }
         }
       ]
