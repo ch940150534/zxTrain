@@ -29,6 +29,10 @@
         active: '',
         menu: [
           {
+            title: '员工管理',
+            href: '/home/membermanager'
+          },
+          {
             title: '修改密码',
             href: '/home/changepwd'
           }
