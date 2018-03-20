@@ -3,9 +3,14 @@
     <manager-header/>
     <div class="registerForm">
       <el-form :model="registerForm" :rules="rules" ref="registerForm" label-width="100px">
-        <el-form-item label="公司名称" prop="partner_name">
+        <el-form-item label="用户名" prop="account">
           <el-col :span="12">
-            <el-input v-model="registerForm.partner_name"></el-input>
+            <el-input v-model="registerForm.account"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="密码" prop="password">
+          <el-col :span="12">
+            <el-input v-model="registerForm.password" type="password"></el-input>
           </el-col>
         </el-form-item>
         <el-form-item label="手机号" prop="phone">
@@ -21,14 +26,14 @@
             </el-input>
           </el-col>
         </el-form-item>
+        <el-form-item label="公司名称" prop="partner_name">
+          <el-col :span="12">
+            <el-input v-model="registerForm.partner_name"></el-input>
+          </el-col>
+        </el-form-item>
         <el-form-item label="姓名" prop="name">
           <el-col :span="12">
             <el-input v-model="registerForm.name"></el-input>
-          </el-col>
-        </el-form-item>
-        <el-form-item label="职位" prop="position">
-          <el-col :span="12">
-            <el-input v-model="registerForm.position"></el-input>
           </el-col>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
@@ -62,26 +67,38 @@
           callback()
         }
       }
+      const validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'))
+        } else {
+          if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,30}$/.test(value))) {
+            callback(new Error('最少8个字符，需包含大小写字母及数字'))
+          }
+          callback()
+        }
+      }
       return {
         codeBtnDisabled: false,
         codeBtnText: '获取短信验证码',
         codeBtnTime: 90,
         registerForm: {
+          account: '',
+          password: '',
           partner_name: '',
           phone: '',
           code: '',
           name: '',
-          position: '',
           email: ''
         },
         rules: {
+          account: [
+            { required: true, message: '请输入用户名', trigger: 'blur' },
+            { min: 6, max: 20, message: '用户名长度为6到20个字符', trigger: 'blur' }],
+          password: [{ required: true, validator: validatePass, trigger: 'blur' }],
           partner_name: [{ required: true, message: '请输入公司名称', trigger: 'blur' }],
-          phone: [
-            { required: true, validator: validatePhone, trigger: 'blur' }
-          ],
+          phone: [{ required: true, validator: validatePhone, trigger: 'blur' }],
           code: [{ required: true, message: '请输入手机验证码', trigger: 'blur' }],
           name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
-          position: [{ required: true, message: '请输入职位', trigger: 'blur' }],
           email: [{ required: true, type: 'email', message: '请输入电子邮箱', trigger: 'blur' }]
         }
       }
@@ -95,13 +112,10 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$api.post(
-              '/manager/save',
+              '/manager/register',
               this.registerForm,
               resj => {
-                this.$alert('审核通过后账号密码将发送至您的注册邮箱！', '温馨提示', {
-                  confirmButtonText: '确定',
-                  callback: () => { this.$router.replace({ path: '/login' }) }
-                })
+                this.$router.replace({ path: '/membermanager' })
               }
             )
           } else {

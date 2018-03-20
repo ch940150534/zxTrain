@@ -4,8 +4,8 @@
       <div class="header-brand">
         <router-link to="/" class="brand"></router-link>
       </div>
-      <div class="header-title">企业名录</div>
-      <template >
+      <div class="header-title">教育培训</div>
+      <template>
         <ul class="header-nav logined list-inline" v-if="loginState===1">
           <li>
             <a @click="logout"><i class="fa fa-sign-out"></i></a>
