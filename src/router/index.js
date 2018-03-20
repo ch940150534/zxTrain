@@ -7,6 +7,8 @@ const ForgetPsw = () => import('@/view/forgetpsw')
 const ChangePwd = () => import('@/view/changepassword')
 const Register = () => import('@/view/register')
 const MemberManager = () => import('@/view/membermanager')
+const ScoreCount = () => import('@/view/scorecount')
+const ScoreHistory = () => import('@/view/scorehistory')
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -28,6 +30,16 @@ export default new Router({
         {
           path: 'membermanager',
           component: MemberManager,
+          meta: { userState: 1 }
+        },
+        {
+          path: 'scorecount',
+          component: ScoreCount,
+          meta: { userState: 1 }
+        },
+        {
+          path: 'scorehistory/:id/:name',
+          component: ScoreHistory,
           meta: { userState: 1 }
         }
       ]
