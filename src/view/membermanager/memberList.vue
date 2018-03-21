@@ -15,7 +15,7 @@
         <el-button type="primary" size="small" @click="_search()">搜索</el-button>
       </el-form-item>
       <el-form-item>
-        <a href="/excel/exportExcel" target="_blank">
+        <a :href="baseUrl+'/excel/exportExcel'" target="_blank">
           <el-button type="primary" size="small">导出列表</el-button>
         </a>
       </el-form-item>
