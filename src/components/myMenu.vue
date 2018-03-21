@@ -39,6 +39,10 @@
           {
             title: '修改密码',
             href: '/home/changepwd'
+          },
+          {
+            title: '账户充值',
+            href: '/home/ordermanager'
           }
         ]
       }
