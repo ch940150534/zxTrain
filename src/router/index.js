@@ -9,6 +9,7 @@ const Register = () => import('@/view/register')
 const MemberManager = () => import('@/view/membermanager')
 const ScoreCount = () => import('@/view/scorecount')
 const ScoreHistory = () => import('@/view/scorehistory')
+const OrderManager = () => import('@/view/ordermanager')
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -40,6 +41,11 @@ export default new Router({
         {
           path: 'scorehistory/:id/:name',
           component: ScoreHistory,
+          meta: { userState: 1 }
+        },
+        {
+          path: 'ordermanager',
+          component: OrderManager,
           meta: { userState: 1 }
         }
       ]
