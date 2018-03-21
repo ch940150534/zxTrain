@@ -20,7 +20,7 @@
       </el-table-column>
       <el-table-column
         label="社会消防科普"
-        prop="1"
+        prop="5"
         :formatter="ifNull"></el-table-column>
       <el-table-column
         label="保洁/绿化"
@@ -28,15 +28,15 @@
         :formatter="ifNull"></el-table-column>
       <el-table-column
         label="秩序/客服"
-        prop="3"
+        prop="1"
         :formatter="ifNull"></el-table-column>
       <el-table-column
         label="消控室人员"
-        prop="4"
+        prop="3"
         :formatter="ifNull"></el-table-column>
       <el-table-column
         label="管理层人员"
-        prop="5"
+        prop="4"
         :formatter="ifNull"></el-table-column>
     </el-table>
     <el-pagination
