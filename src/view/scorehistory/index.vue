@@ -15,8 +15,6 @@
 </template>
 
 <script>
-  import { EventBus } from '../../util/eventBus'
-
   export default {
     name: 'scorehistory',
     data () {
@@ -25,7 +23,6 @@
       }
     },
     mounted () {
-      EventBus.$emit('setHomeHeader', `成绩历史 : ${this.$route.params.name}`)
       this.load()
     },
     methods: {

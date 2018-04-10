@@ -50,8 +50,6 @@
 </template>
 
 <script>
-  import { EventBus } from '../../util/eventBus'
-
   export default {
     name: 'scorecount',
     data () {
@@ -66,7 +64,6 @@
     },
     mounted () {
       this.load()
-      EventBus.$emit('setHomeHeader', '成绩统计')
     },
     methods: {
       load () {

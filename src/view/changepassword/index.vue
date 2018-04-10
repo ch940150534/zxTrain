@@ -24,8 +24,6 @@
 </template>
 
 <script>
-  import { EventBus } from '../../util/eventBus'
-
   export default {
     name: 'changepassword',
     data () {
@@ -90,9 +88,6 @@
       resetForm (formName) {
         this.$refs[formName].resetFields()
       }
-    },
-    mounted () {
-      EventBus.$emit('setHomeHeader', '修改密码')
     }
   }
 </script>

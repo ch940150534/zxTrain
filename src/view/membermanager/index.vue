@@ -6,7 +6,6 @@
 </template>
 
 <script>
-  import { EventBus } from '../../util/eventBus'
   import MemberList from './memberList'
   import MemberAdd from './memberAdd'
 
@@ -17,9 +16,6 @@
     name: 'membermanager',
     data () {
       return {}
-    },
-    mounted () {
-      EventBus.$emit('setHomeHeader', '员工管理')
     }
   }
 </script>

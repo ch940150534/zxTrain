@@ -52,7 +52,6 @@
 </template>
 <script>
   import ManagerHeader from '../../components/managerHeader'
-  import { EventBus } from '../../util/eventBus'
 
   export default {
     name: 'Register',
@@ -104,9 +103,6 @@
       }
     },
     components: { ManagerHeader },
-    mounted () {
-      EventBus.$emit('setHomeHeader', '注册信息')
-    },
     methods: {
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {

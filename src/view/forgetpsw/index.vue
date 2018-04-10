@@ -41,7 +41,6 @@
 </template>
 <script>
   import ManagerHeader from '../../components/managerHeader'
-  import {EventBus} from '../../util/eventBus'
 
   export default {
     name: 'ForgetPsw',
@@ -109,9 +108,6 @@
           ]
         }
       }
-    },
-    mounted () {
-      EventBus.$emit('setHomeHeader', '忘记密码')
     },
     methods: {
       submitForm (formName) {
